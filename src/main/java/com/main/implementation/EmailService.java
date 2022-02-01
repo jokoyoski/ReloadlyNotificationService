@@ -43,22 +43,9 @@ public class EmailService implements IEmailService {
         }
     }
 
-    public void sendResetEmail(String toEmail, String firstName, String code) {
 
-        String ADMIN_EMAIL = appSettingQuery.getSetting("ADMIN_EMAIL").getValue();
 
-        String subject = "Reset to Password";
 
-        String body = String.format("<html>Hi %s, <br/><br/> Please use code to reset password <br/> <br/> Code: %s</html>", firstName, code);
-
-        try{
-            sendEmailGrid(subject, body, "bomana.ogoni@hotmail.com", toEmail);
-        }
-        catch (Exception ex){
-            logger.error(String.format("Error occurred {0}", ex.getMessage()));
-        }
-
-    }
 
 
     @Override
